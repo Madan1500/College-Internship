@@ -49,7 +49,6 @@ submit.addEventListener('click', function (e) {
         alert('Please fill in all fields');
     else {
         e.preventDefault();
-        console.log(e)
         console.log(name.value);
         console.log(email.value);
         console.log(subject.value);
