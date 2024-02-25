@@ -44,10 +44,12 @@ document.querySelectorAll(".footer-link").forEach((item) => {
 
 
 //Task--> This will print data in the Console of the user
-submit.addEventListener('click', function () {
+submit.addEventListener('click', function (e) {
     if (name.value === '' || email.value === '' || message.value === '' || subject.value === '')
         alert('Please fill in all fields');
     else {
+        e.preventDefault();
+        console.log(e)
         console.log(name.value);
         console.log(email.value);
         console.log(subject.value);
