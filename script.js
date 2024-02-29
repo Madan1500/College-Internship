@@ -80,6 +80,14 @@ if(window.innerWidth >= 660){
     };
 }
 
+window.onresize = function(){
+    if(window.innerWidth < 660){
+        location.reload();
+        nav.style.transform = 'translateY(0)';
+    } else {
+        nav.style.transform = 'translateY(0)';
+    }
+}
 chat.addEventListener('keypress',function(e){
     if(e.key === 'Enter'){
         chatBox.innerHTML+=`<p class="user-data">${chat.value}</p>`;
