@@ -6,6 +6,21 @@ let subject = document.querySelector('#subject');
 let submit = document.querySelector('#submit');
 let close = document.querySelector('#close');
 let nav = document.querySelector('.nav');
+let box=document.querySelector('.question-Box');
+let botCross=document.querySelector('#bot-cross');
+let bot=document.querySelector('.question-bot');
+let chat=document.querySelector('.chat-input');
+let chatBox=document.querySelector('.data-field');
+let myForm=document.querySelector('#myForm')
+
+
+bot.addEventListener('click',()=>{
+    box.style.display="block"
+})
+
+botCross.addEventListener('click',()=>{
+    box.style.display="none"
+})
 
 menu.style.cursor = 'pointer';
 
@@ -41,36 +56,47 @@ document.querySelectorAll(".footer-link").forEach((item) => {
     })
 })
 
+myForm.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    //FormData converts the data as key/value pair
+    let formData=new FormData(e.target);
+    formData.forEach((value, key) => {
+        console.log(`${key}: ${value}`);
+    });
+})
 
 
-//Task--> This will print data in the Console of the user
-submit.addEventListener('click', function (e) {
-    if (name.value === '' || email.value === '' || message.value === '' || subject.value === '')
-        alert('Please fill in all fields');
-    else {
-        e.preventDefault();
-        console.log(name.value);
-        console.log(email.value);
-        console.log(subject.value);
-        console.log(message.value);
-    }
-});
-let reloadOnce = true;
-  function refreshPage() {
-    if (window.innerWidth > 660 && reloadOnce) {
-      location.reload();
-        reloadOnce = false;
-        window.onscroll = function() {
-        if (window.scrollY > prev){
-            nav.style.transform = 'translateY(-100%)';
-        } else {
-            nav.style.transform = 'translateY(0)';
+
+
+
+let resizeTimeout;
+let reloadOnce=true;
+window.onresize = function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+        if(window.innerWidth >= 660){
+            let prev = window.scrollY;
+            window.onscroll = function() {
+                let nav = document.querySelector('nav');
+                if (window.scrollY > prev){
+                    nav.style.transform = 'translateY(-100%)';
+                } else {
+                    nav.style.transform = 'translateY(0)';
+                }
+                prev = window.scrollY;
+            };
         }
-        prev = window.scrollY;
-    };
-    }
-  }
-  // Call the function on page load and resize
-  window.onload = refreshPage;
-  window.onresize = refreshPage
+        else{
+            location.reload();
+            reloadOnce=false;
+        }
+    }, 500);
+    
+};
 
+chat.addEventListener('keypress',function(e){
+    if(e.key === 'Enter'){
+        chatBox.innerHTML+=`<p class="user-data">${chat.value}</p>`;
+        chat.value="";
+    }
+})
