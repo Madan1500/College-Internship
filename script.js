@@ -67,32 +67,18 @@ myForm.addEventListener('submit',(e)=>{
 
 
 
-
-
-let resizeTimeout;
-let reloadOnce=true;
-window.onresize = function() {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(function() {
-        if(window.innerWidth >= 660){
-            let prev = window.scrollY;
-            window.onscroll = function() {
-                let nav = document.querySelector('nav');
-                if (window.scrollY > prev){
-                    nav.style.transform = 'translateY(-100%)';
-                } else {
-                    nav.style.transform = 'translateY(0)';
-                }
-                prev = window.scrollY;
-            };
+if(window.innerWidth >= 660){
+    // This is first I am setting the previous value
+    let prev = window.scrollY;
+    window.onscroll = function() {
+        if (window.scrollY > prev){
+            nav.style.transform = 'translateY(-100%)';
+        } else {
+            nav.style.transform = 'translateY(0)';
         }
-        else{
-            location.reload();
-            reloadOnce=false;
-        }
-    }, 500);
-    
-};
+        prev = window.scrollY;
+    };
+}
 
 chat.addEventListener('keypress',function(e){
     if(e.key === 'Enter'){
