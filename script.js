@@ -55,14 +55,12 @@ submit.addEventListener('click', function (e) {
         console.log(message.value);
     }
 });
-
 let reloadOnce = true;
-if(window.innerWidth >= 660 && reloadOnce){
-    // This is first I am setting the previous value
-    let prev = window.scrollY;
-    location. reload() ;
-    reloadOnce = false;
-    window.onscroll = function() {
+  function refreshPage() {
+    if (window.innerWidth > 660 && reloadOnce) {
+      location.reload();
+        reloadOnce = false;
+        window.onscroll = function() {
         if (window.scrollY > prev){
             nav.style.transform = 'translateY(-100%)';
         } else {
@@ -70,4 +68,9 @@ if(window.innerWidth >= 660 && reloadOnce){
         }
         prev = window.scrollY;
     };
-}
+    }
+  }
+  // Call the function on page load and resize
+  window.onload = refreshPage;
+  window.onresize = refreshPage
+
