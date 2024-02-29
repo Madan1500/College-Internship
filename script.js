@@ -60,6 +60,7 @@ submit.addEventListener('click', function (e) {
 if(window.innerWidth >= 660){
     // This is first I am setting the previous value
     let prev = window.scrollY;
+    location. reload() ;
     window.onscroll = function() {
         if (window.scrollY > prev){
             nav.style.transform = 'translateY(-100%)';
