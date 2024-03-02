@@ -71,6 +71,20 @@ myForm.addEventListener('submit',(e)=>{
     alert("Printed on the Console Successfully");
 })
 
+let prev = window.scrollY;
+if(window.innerWidth>=660){
+    window.addEventListener('scroll', () => {
+        let current = window.scrollY;
+        if (current > prev) {
+            nav.style.top = "-100px";
+            nav.style.transition = "top 0.5s";
+        } else {
+            nav.style.top = "0px";
+            nav.style.transition = "top 0.5s";
+        }
+        prev = current;
+    })
+}
 
 
 chat.addEventListener('keypress',function(e){
