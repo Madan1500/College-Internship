@@ -405,6 +405,7 @@ nav button:active {
 }
 
 @media only screen and (min-width:660px) {
+
     .question-bot {
         display: block;
         right: 40px;
@@ -423,6 +424,9 @@ nav button:active {
         top: 0;
         z-index: 1001;
         transform: translate(0);
+    }
+    .none{
+        display: none;
     }
 
     nav {
