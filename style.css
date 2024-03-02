@@ -425,9 +425,7 @@ nav button:active {
         z-index: 1001;
         transform: translate(0);
     }
-    .none{
-        display: none;
-    }
+    
 
     nav {
         height: 64px;

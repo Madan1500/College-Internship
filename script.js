@@ -85,6 +85,17 @@ if(window.innerWidth >= 660){
     };
 }
 
+let initialHeight = window.innerHeight;
+let reloadOnce = true;
+
+window.onresize = function() {
+    if(window.innerWidth < 660 && window.innerHeight >= initialHeight * 0.8 && reloadOnce) {
+        reloadOnce = false;
+        location.reload();
+    } else {
+        nav.style.transform = 'translateY(0)';
+    }
+}
 
 chat.addEventListener('keypress',function(e){
     if(e.key === 'Enter'){
