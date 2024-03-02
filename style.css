@@ -69,19 +69,22 @@ body {
     outline: none;
     border: 2px solid var(--primary);
 }
-.user-data{
+
+.user-data {
     border-radius: 20px;
     padding: 5px;
     color: #fff;
     margin: 10px 0;
     color: #fff;
 }
-.user-data:nth-child(odd){
+
+.user-data:nth-child(odd) {
     background: green;
     padding-left: 20px;
 
 }
-.user-data:nth-child(even){
+
+.user-data:nth-child(even) {
     background-color: #212121;
     text-align: end;
     padding-right: 20px;
@@ -218,10 +221,12 @@ nav button:active {
 }
 
 .hero .main img {
-    height: 400px;
+    height: 300px;
     object-fit: cover;
     filter: drop-shadow(2px 4px 6px black);
+
 }
+
 
 ::selection {
     background-color: rgb(46, 46, 211);
@@ -515,6 +520,12 @@ nav button:active {
 
     .hero .main div {
         width: 100%;
+    }
+}
+
+@media only screen and (max-width:280px) {
+    .hero main img {
+        height: 212px;
     }
 }
 
