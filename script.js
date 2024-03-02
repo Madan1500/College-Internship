@@ -63,6 +63,11 @@ myForm.addEventListener('submit',(e)=>{
     formData.forEach((value, key) => {
         console.log(`${key}: ${value}`);
     });
+    name.value="";
+    email.value="";
+    message.value="";
+    subject.value="";
+    alert("Printed on the Console Successfully");
 })
 
 
