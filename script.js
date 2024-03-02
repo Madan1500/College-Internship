@@ -26,6 +26,7 @@ menu.style.cursor = 'pointer';
 
 
 menu.addEventListener('click', function () {
+    nav.classList.remove('none')
     nav.classList.toggle('show');
     menu.style.display = 'none';
     nav.style.position = "relative";
@@ -71,31 +72,6 @@ myForm.addEventListener('submit',(e)=>{
 })
 
 
-
-if(window.innerWidth >= 660){
-    // This is first I am setting the previous value
-    let prev = window.scrollY;
-    window.onscroll = function() {
-        if (window.scrollY > prev){
-            nav.style.transform = 'translateY(-100%)';
-        } else {
-            nav.style.transform = 'translateY(0)';
-        }
-        prev = window.scrollY;
-    };
-}
-
-let initialHeight = window.innerHeight;
-let reloadOnce = true;
-
-window.onresize = function() {
-    if(window.innerWidth < 660 && window.innerHeight >= initialHeight * 0.8 && reloadOnce) {
-        reloadOnce = false;
-        location.reload();
-    } else {
-        nav.style.transform = 'translateY(0)';
-    }
-}
 
 chat.addEventListener('keypress',function(e){
     if(e.key === 'Enter'){
