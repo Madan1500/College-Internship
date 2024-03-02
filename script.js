@@ -85,10 +85,12 @@ if(window.innerWidth >= 660){
     };
 }
 
-
-window.onresize = function(){
-    if(window.innerWidth < 660){
+let reloadOnce = true;
+window.onresize = function() {
+    if(window.innerWidth < 660 && reloadOnce) {
+        reloadOnce = false;
         location.reload();
+    } else {
         nav.style.transform = 'translateY(0)';
     }
 }
