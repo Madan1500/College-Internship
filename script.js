@@ -86,18 +86,13 @@ if(window.innerWidth >= 660){
 }
 
 
-window.addEventListener('resize', () => {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  
-    if(window.innerHeight < window.innerWidth){}
-    else{
-        if(window.innerWidth < 660){
-            location.reload();
-            nav.style.transform = 'translateY(0)';
-        }
+window.onresize = function(){
+    if(window.innerWidth < 660){
+        location.reload();
+        nav.style.transform = 'translateY(0)';
     }
-  });
+}
+
 chat.addEventListener('keypress',function(e){
     if(e.key === 'Enter'){
         chatBox.innerHTML+=`<p class="user-data">${chat.value}</p>`;
